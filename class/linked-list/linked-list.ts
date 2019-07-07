@@ -1,11 +1,11 @@
 import ILinkedList from './i-linked-list';
 import ILinkedNode from './i-linked-node';
 import LinkedNode from './linked-node';
-import List from '../list/list';
+import ListGeneric from '../list/list-generic';
 
-class LinkedList extends List<ILinkedNode> implements ILinkedList {
+class LinkedList<T> extends ListGeneric<ILinkedNode> implements ILinkedList {
 
-    add(value: any): ILinkedNode {
+    add(value: T): ILinkedNode {
         let item = new LinkedNode(value, this);
         return this.append(item);
     }
@@ -13,7 +13,7 @@ class LinkedList extends List<ILinkedNode> implements ILinkedList {
     get first(): ILinkedNode {
         return this.getByIndex(0);
     };
-    
+
     get last(): ILinkedNode {
         return this.getByIndex(this.count - 1);
     };

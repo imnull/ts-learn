@@ -1,4 +1,4 @@
-import IList from '../list/i-list';
+import IList from '../list/interface';
 import IListNode from './i-linked-node';
 
 interface ILinkedList extends IList<IListNode> {
