@@ -12,9 +12,6 @@ class List<T> implements IList<T> {
     };
     
     append(item: T): T {
-        if(item === null){
-            return null;
-        }
         this.list.push(item);
         return item;
     }
