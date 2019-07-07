@@ -1,64 +1,15 @@
-interface ILinkedNode {
-    /**
-     * 下一个节点
-     */
-    next: ILinkedNode,
-    /**
-     * 上一个节点
-     */
-    previous: ILinkedNode,
-    /**
-     * 所在索引位置
-     */
-    index: Number,
-    /**
-     * 挂载值
-     */
-    value: any,
-}
 
-interface ILinkedNodeList {
-    /**
-     * 第一个节点
-     */
-    first: ILinkedNode;
-    /**
-     * 最后一个节点
-     */
-    last: ILinkedNode;
 
-    /**
-     * 索引位置
-     */
-    indexOf: (node: ILinkedNode) => number;
-    /**
-     * 获取节点
-     */
-    getNodeByIndex: (index: number) => ILinkedNode;
-    /**
-     * 添加节点
-     */
-    append: (node: ILinkedNode) => ILinkedNode;
-    /**
-     * 添加值
-     */
-    add: (value: any) => ILinkedNode;
-    /**
-     * 节点数量
-     */
-    count: Number;
-}
+
 
 class LinkedNode implements ILinkedNode {
 
-    private parent: ILinkedNodeList;
+    private parent: ILinkedList;
 
-    constructor(parent: ILinkedNodeList){
+    constructor(parent: ILinkedList){
         this.parent = parent;
     }
-
     
-
     get index(): Number {
         return this.parent.indexOf(this);
     }
@@ -78,7 +29,7 @@ class LinkedNode implements ILinkedNode {
     value: any;
 }
 
-class LinkedNodeList implements ILinkedNodeList {
+class LinkedNodeList implements ILinkedList {
 
     private list: Array<ILinkedNode>;
 
@@ -113,5 +64,5 @@ class LinkedNodeList implements ILinkedNodeList {
     }
 }
 
-let lnl: ILinkedNodeList = new LinkedNodeList();
+let lnl: ILinkedList = new LinkedNodeList();
 console.log(lnl.first)
